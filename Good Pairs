@@ -1,0 +1,31 @@
+//to return a number of pairs
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>num;
+    for(int i=0;i<n;i++)
+    {
+       int element;
+       cin>>element;
+       num.push_back(element);
+    }
+    int temp=0;
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            if(i<j)
+            {
+                if(num[i]==num[j])
+                {
+                    temp++;
+                }
+            }
+        }
+    }
+    cout<<temp;
+    return 0;
+}
