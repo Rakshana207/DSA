@@ -1,0 +1,26 @@
+solution1
+Day 6 Best time to buy and sell stock
+time complexity O(n^2)
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n;
+    cin>>n;
+    vector<int > price(n);
+    for(int i=0;i<n;i++){
+        int currentprice;
+        cin>>currentprice;
+        price[i]=currentprice;
+    }
+    int answer = -1000000000; // 10^9
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            if(answer < price[j]-price[i]){
+                answer = price[j]-price[i];
+            }
+        }
+    }
+    cout<<answer;
+    return 0;
+}
