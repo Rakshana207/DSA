@@ -1,0 +1,43 @@
+Day 9 : longest common prefix
+
+solution 1
+time complixity : O(n*m^2)
+n - array len
+m - string len
+
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main(){
+    int n;
+    cin>>n;
+    vector<string >v;
+    int minlenstr = 1000000000;
+    for(int i=0;i<n;i++){
+        string temp;
+        cin>>temp;
+        v.push_back(temp);
+        if(minlenstr>temp.length()){
+            minlenstr = temp.length();
+        }
+    }
+    string answer = "";
+    for(int prefixlen=1;prefixlen<=(minlenstr);prefixlen++){
+        int flag = 1;
+        string current_prefix = v[0].substr(0,prefixlen);
+        for(int i=0;i<n;i++){
+            string current_prefix2 = v[i].substr(0,prefixlen);
+            if(current_prefix2!=current_prefix){
+                flag = 0;
+            }
+        }
+        if(flag==1){
+            answer = current_prefix;
+        } else {
+            break;
+        }
+    }
+    cout<<answer;
+    return 0;
+}
